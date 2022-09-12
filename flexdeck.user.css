@@ -1,0 +1,36 @@
+/* ==UserStyle==
+
+@name           Adjustable Tweetdeck Columns
+@namespace      https://github.com/andreasgrafen
+@author         Andreas Grafen
+@description    Turns Tweetdeck into an auto-adjusting layout with a customisable column width.
+                This requires you to use the wide columns setting!
+@version        0.0.1
+@license        MIT
+@preprocessor   uso
+@updateURL      https://github.com/andreasgrafen/flexdeck/raw/main/flexdeck.user.css
+
+@advanced text col-width "min-width for columns in px" "400"
+
+==/UserStyle== */
+
+
+
+@-moz-document domain("tweetdeck.twitter.com") {
+
+  .column-scroller { overflow-y: hidden; }
+
+
+  html.dark .is-wide-columns .app-columns,
+  html .is-wide-columns .app-columns { display: flex; }
+
+
+  html.dark .is-wide-columns .column,
+  html .is-wide-columns .column {
+
+    margin-right: 6px;
+    width: 100%; min-width: /*[[col-width]]*/px;
+
+  }
+
+}
